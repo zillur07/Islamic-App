@@ -2,6 +2,8 @@ import 'package:bottom_navy_bar/bottom_navy_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:muslim_app/src/config/appTheme.dart';
+import 'package:muslim_app/src/controllers/base_controller.dart';
+import 'package:muslim_app/src/pages/quran_page.dart';
 import 'package:muslim_app/src/widget/kText.dart';
 
 class HomePage extends StatefulWidget {
@@ -9,7 +11,7 @@ class HomePage extends StatefulWidget {
   State<HomePage> createState() => _HomePageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _HomePageState extends State<HomePage> with BaseController {
   int _currentIndex = 0;
   int _counter = 0;
 
@@ -244,7 +246,10 @@ class _HomePageState extends State<HomePage> {
                           ],
                         ),
                         IconButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            // suraGetC.getAllSura();
+                            Get.to(QuranPage());
+                          },
                           icon: Icon(
                             Icons.arrow_forward_ios,
                             color: Colors.white,
